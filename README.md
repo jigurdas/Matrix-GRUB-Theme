@@ -39,4 +39,4 @@ A full-screen, high-resolution GRUB theme inspired by The Matrix. It uses the "G
     * Update `/etc/default/grub`.
     * Generate a new `grub.cfg`.
 
-5.  **Reboot** and enjoy the theme! The black screen delay when booting Linux has been removed by excluding `quiet splash` from the boot parameters.
+5.  **Reboot** and enjoy the theme!
