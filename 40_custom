@@ -19,7 +19,6 @@ menuentry "Arch Linux" --class os_arch {
     # Find root partition by UUID (REPLACE THIS UUID)
     search --no-floppy --fs-uuid --set=root YOUR_LINUX_UUID
     
-    # Load kernel without 'quiet' or 'splash' to show boot messages and fix black screen.
     echo    'Loading Linux kernel...' 
     linux   /boot/vmlinuz-linux root=UUID=YOUR_LINUX_UUID rw
     
