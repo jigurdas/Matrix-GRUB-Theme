@@ -1,0 +1,44 @@
+# =============================
+# MATRIX GRUB THEME (Red Pill vs Blue Pill)
+# =============================
+
+# 1. Base Settings
+title-text: ""
+desktop-color: "#000000"
+# Set initial background to one of the pills to prevent a temporary black screen
+desktop-image: "icons/os_arch.png"
+# Use 'stretch' for GRUB compatibility
+desktop-image-scale-method: "stretch"
+
+# 2. Terminal Settings (for errors/console)
+terminal-font: "font.pf2"
+terminal-left: "0%"
+terminal-top: "0%"
+terminal-width: "100%"
+terminal-height: "100%"
+terminal-border: "0"
+
+# 3. Boot Menu (Full-screen icons trick)
++ boot_menu {
+    left = 0%
+    top = 0%
+    width = 100%
+    height = 100%
+
+    # Text is invisible but required for GRUB functionality
+    item_font = "font.pf2"
+    item_color = "#000000"
+    selected_item_color = "#000000"
+    selected_item_font = "font.pf2"
+
+    # Full Screen Icon Parameters (adjust if resolution is not 1920x1080)
+    icon_width = 1920
+    icon_height = 1080
+    item_height = 1080
+    item_width = 1920
+
+    # Remove all spacing for seamless full-screen appearance
+    item_padding = 0
+    item_icon_space = 0
+    item_spacing = 0
+}

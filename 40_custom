@@ -1,0 +1,43 @@
+#!/bin/sh
+exec tail -n +3 $0
+# This file provides custom menu entries for the Matrix GRUB Theme.
+
+# IMPORTANT: REPLACE THE UUIDs below with your actual partition UUIDs.
+# 1. YOUR_LINUX_UUID: Linux root partition UUID (e.g., d72e1cde-cb7a-491f-89aa-cb1743e50f0a)
+# 2. YOUR_WINDOWS_EFI_UUID: Windows EFI partition UUID (e.g., 54C8-DC44)
+
+# =============================
+# ARCH / ENDEAVOUROS - Red Pill (Icon: os_arch.png)
+# =============================
+menuentry "Arch Linux" --class os_arch {
+    load_video
+    set gfxpayload=keep
+    insmod gzio
+    insmod part_gpt
+    insmod ext2
+    
+    # Find root partition by UUID (REPLACE THIS UUID)
+    search --no-floppy --fs-uuid --set=root YOUR_LINUX_UUID
+    
+    # Load kernel without 'quiet' or 'splash' to show boot messages and fix black screen.
+    echo    'Loading Linux kernel...' 
+    linux   /boot/vmlinuz-linux root=UUID=YOUR_LINUX_UUID rw
+    
+    echo    'Loading initial ramdisk...' 
+    initrd  /boot/initramfs-linux.img
+}
+
+# =============================
+# WINDOWS - Blue Pill (Icon: os_windows.png)
+# =============================
+menuentry "Windows" --class os_windows {
+    insmod part_gpt
+    insmod fat
+    insmod chain
+    
+    # Find Windows EFI partition by UUID (REPLACE THIS UUID)
+    search --no-floppy --fs-uuid --set=root YOUR_WINDOWS_EFI_UUID
+    
+    echo    'Chainloading Windows Boot Manager...' 
+    chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+}
