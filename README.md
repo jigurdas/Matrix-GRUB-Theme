@@ -16,8 +16,8 @@ A full-screen, high-resolution GRUB theme inspired by The Matrix. It uses the "G
 
 1.  **Clone the Repository** and enter the directory.
     ```bash
-    git clone [YOUR-REPO-URL]
-    cd [YOUR-REPO-NAME]
+    git clone https://github.com/jigurdas/Matrix-GRUB-Theme
+    cd Matrix-GRUB-Theme
     ```
 
 2.  **Find Your UUIDs:**
